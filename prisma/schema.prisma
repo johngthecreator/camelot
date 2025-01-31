@@ -1,0 +1,27 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Song{
+    id Int @id @default(autoincrement())
+    spotify_id String
+    song String
+    artist String
+    spotify_preview String
+    year Int
+    duration_ms Int
+    bpm Int
+    camelot String
+    song_key String
+
+     @@index([artist, song])
+     @@index([year])
+     @@index([song_key])
+     @@index([camelot])
+}
